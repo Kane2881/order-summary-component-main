@@ -1,0 +1,174 @@
+:root {
+    --clr-primary-hsl-200: 225, 100%, 94%;
+    --clr-primary-hsl-400: 245, 75%, 52%;
+
+    --clr-primary-200: hsl(var(--clr-primary-hsl-200));
+    --clr-primary-400: hsl(var(--clr-primary-hsl-400));
+
+    --clr-neutral-300: hsl(225, 100%, 98%);
+    --clr-neutral-500: hsl(224, 23%, 55%);
+    --clr-neutral-700: hsl(223, 47%, 23%);
+
+    --ff-defualt: "Red Hat Display", sans-serif;
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* general styling */
+
+body {
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-defualt);
+    line-height: 1.4;
+    text-align: center;
+
+    background-image: url("images/pattern-background-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--clr-primary-200);
+
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+@media (min-width: 27em) {
+    body {
+        background-image: url("images/pattern-background-desktop.svg");
+        background-size: 100vw;
+    }
+}
+
+.order-summary-card {
+    max-width: 450px;
+    background-color: var(--clr-neutral-300);
+    margin-inline: 1rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+/* order-summary */
+
+.order-summary__content {
+    padding: 0.25rem 1rem;
+}
+
+.order-summary__title {
+    font-weight: var(--fw-black);
+    font-size: 1.5rem;
+    color: var(--clr-neutral-700);
+    margin-bottom: 0.75rem;
+}
+
+.order-summary__description {
+    color: var(--clr-neutral-500);
+}
+
+/* subscription*/
+
+.subscription {
+    --gap: 1.5rem;
+    align-items: center;
+    background-color: hsl(var(--clr-primary-hsl-200), 0.5);
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+.subscription__plan {
+    --gap: 0;
+    flex-direction: column;
+    margin-right: auto;
+}
+
+.subscription__plan-name {
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-700);
+}
+
+.subscription__plan-price {
+    color: var(--clr-neutral-500);
+}
+
+.subscription__plan-btn {
+    color: var(--clr-primary-400);
+}
+
+.subscription__plan-btn:hover,
+.subscription__plan-btn:focus-visible {
+    text-decoration: none;
+    color: hsl(var(--clr-primary-hsl-400), 0.5);
+}
+
+/* button */
+
+.button {
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary-200);
+    line-height: 1;
+    background-color: var(--clr-primary-400);
+    padding-block: 1.25rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem 0 hsl(var(--clr-primary-hsl-400), 0.2);
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.7;
+}
+
+.order-cancel-btn {
+    display: inline-block;
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-500);
+    text-decoration: none;
+    margin-block: 0 2rem;
+}
+
+.order-cancel-btn:hover,
+.order-cancel-btn:focus-visible {
+    color: var(--clr-neutral-700);
+}
+
+/* utility classes */
+
+.container {
+    /* width: 90%; */
+    margin-inline: auto;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 27em) {
+    .container {
+        padding: 2rem 3rem;
+    }
+}
+
+.grid-flow {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.flex-group {
+    display: flex;
+    gap: var(--gap, 1rem);
+    flex-wrap: wrap;
+}
